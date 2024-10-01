@@ -1,9 +1,9 @@
 # Dotfiles
 
 ## What do we have here?
-1. .zshrc
+1. zshrc dot file
 2. kitty config
 3. nvim config (lazyvim fork)
 
-## Original source
+## How was this created
 [Atlassian guide](https://www.atlassian.com/git/tutorials/dotfiles)
