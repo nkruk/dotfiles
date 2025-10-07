@@ -1,27 +1,25 @@
 return {
   "nvim-telescope/telescope-ui-select.nvim",
+  dependencies = { "nvim-telescope/telescope.nvim" }, -- ensure telescope is loaded first
   config = function()
-    -- get access to telescopes navigation functions
-    local actions = require("telescope.actions")
+    local telescope = require("telescope")
 
-    require("telescope").setup({
+    telescope.setup({
       defaults = {
         wrap_results = true,
-        sorting_strategy = "ascending"
+        sorting_strategy = "ascending",
       },
       pickers = {
         oldfiles = {
-          initial_mode = "normal"
-        }
-      },
-      -- use ui-select dropdown as our ui
-      extensions = {
-        ["ui-select"] = {
-          require("telescope.themes").get_dropdown({}),
+          initial_mode = "normal",
         },
       },
-      -- load the ui-select extension
-      require("telescope").load_extension("ui-select"),
+      extensions = {
+        ["ui-select"] = require("telescope.themes").get_dropdown({}),
+      },
     })
+
+    telescope.load_extension("ui-select")
   end,
 }
+
